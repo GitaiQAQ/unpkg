@@ -1,6 +1,6 @@
 FROM node:lts as builder
 
-RUN apt update && apt install openjdk-8-jre
+RUN apt update && apt install -y openjdk-8-jre
 
 RUN wget -qO- https://github.com/unpkg/unpkg.com/archive/master.zip | busybox unzip - 
 
