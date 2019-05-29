@@ -4,7 +4,7 @@ RUN apt update && apt install -y openjdk-8-jre busybox
 
 RUN wget https://github.com/unpkg/unpkg.com/archive/master.zip && unzip master.zip
 
-RUN echo "" > unpkg.com-master/middleware/staticFiles
+RUN echo "" > unpkg.com-master/modules/middleware/staticFiles
 
 RUN cd unpkg.com-master && npm install && npm run build
 
