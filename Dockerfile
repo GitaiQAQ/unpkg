@@ -4,11 +4,9 @@ RUN apt update && apt install -y openjdk-8-jre busybox
 
 RUN wget https://github.com/unpkg/unpkg.com/archive/master.zip && unzip master.zip
 
-RUN cd unpkg.com-master
+RUN echo "" > unpkg.com-master/middleware/staticFiles
 
-RUN echo "" > ./middleware/staticFiles
-
-RUN npm install && npm run build
+RUN cd unpkg.com-master && npm install && npm run build
 
 FROM node:lts-alpine
 
