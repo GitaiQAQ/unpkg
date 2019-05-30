@@ -12,7 +12,7 @@ FROM node:lts-alpine
 
 MAINTAINER Gitai<i@gitai.me>
 
-COPY --from=builder unpkg.com-master/package.json unpkg.com-master/server.js /root
+COPY --from=builder unpkg.com-master/package.json unpkg.com-master/server.js /root/
 
 RUN npm install --production
 
