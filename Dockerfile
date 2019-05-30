@@ -4,7 +4,7 @@ RUN apt update && apt install -y openjdk-8-jre busybox
 
 RUN wget https://github.com/unpkg/unpkg.com/archive/master.zip && unzip master.zip
 
-RUN echo "export default null;" > unpkg.com-master/modules/actions/serveStats.js
+RUN echo "export default (_, res) => res.status(404).send('Sorry, Self hosting without stats!');" > unpkg.com-master/modules/actions/serveStats.js
 
 RUN cd unpkg.com-master && npm install && npm run build
 
