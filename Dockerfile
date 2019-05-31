@@ -20,4 +20,6 @@ COPY --from=builder /unpkg.com-dev/public /unpkg.com-dev/package.json /unpkg.com
 
 RUN npm install --production
 
+ENV SECRET_KEY ""
+
 ENTRYPOINT ["node", "/root/server.js"]
