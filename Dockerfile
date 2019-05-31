@@ -2,9 +2,9 @@ FROM node:lts as builder
 
 RUN apt update && apt install -y openjdk-8-jre busybox
 
-RUN wget https://github.com/GitaiQAQ/unpkg.com/archive/dev.zip && unzip *.zip && cd unpkg.com-* && pwd && ls .
+RUN wget https://github.com/GitaiQAQ/unpkg.com/archive/dev.zip && unzip *.zip && cd unpkg.com-*
 
-RUN echo "export default (_, res) => res.status(404).send('Sorry, Self hosting without stats!');" > modules/actions/serveStats.js
+RUN pwd && ls . && echo "export default (_, res) => res.status(404).send('Sorry, Self hosting without stats!');" > modules/actions/serveStats.js
 
 RUN npm install && npm run build
 
