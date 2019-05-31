@@ -14,8 +14,10 @@ FROM node:lts-alpine
 
 MAINTAINER Gitai<i@gitai.me>
 
-COPY --from=builder unpkg.com-*/public unpkg.com-*/package.json unpkg.com-*/server.js ~/
+WORKDIR ~
 
-RUN cd ~ && npm install --production
+COPY --from=builder /unpkg.com-dev/public /unpkg.com-dev/package.json /unpkg.com-dev/server.js ~/
+
+RUN npm install --production
 
 ENTRYPOINT ["node", "/root/server.js"]
