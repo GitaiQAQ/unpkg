@@ -2,13 +2,13 @@ FROM node:lts as builder
 
 RUN apt update && apt install -y openjdk-8-jre busybox
 
-WORKDIR /root
-
 RUN wget https://github.com/GitaiQAQ/unpkg.com/archive/dev.zip && unzip *.zip
 
-RUN pwd && cd /unpkg.com-* && ls . && echo "export default (_, res) => res.status(404).send('Sorry, Self hosting without stats!');" > modules/actions/serveStats.js
+WORKDIR /unpkg.com-*
 
-RUN pwd && cd /unpkg.com-* && npm install && npm run build
+RUN pwd && echo "export default (_, res) => res.status(404).send('Sorry, Self hosting without stats!');" > modules/actions/serveStats.js
+
+RUN pwd && npm install && npm run build
 
 FROM node:lts-alpine
 
