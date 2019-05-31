@@ -4,11 +4,11 @@ RUN apt update && apt install -y openjdk-8-jre busybox
 
 RUN wget https://github.com/GitaiQAQ/unpkg.com/archive/dev.zip && unzip *.zip
 
-WORKDIR /unpkg.com-*
+WORKDIR /unpkg.com-dev
 
-RUN pwd && echo "export default (_, res) => res.status(404).send('Sorry, Self hosting without stats!');" > modules/actions/serveStats.js
+RUN echo "export default (_, res) => res.status(404).send('Sorry, Self hosting without stats!');" > modules/actions/serveStats.js
 
-RUN pwd && npm install && npm run build
+RUN npm install && npm run build
 
 FROM node:lts-alpine
 
