@@ -14,9 +14,9 @@ FROM node:lts-alpine
 
 MAINTAINER Gitai<i@gitai.me>
 
-WORKDIR ~
+WORKDIR /root
 
-COPY --from=builder /unpkg.com-dev/public /unpkg.com-dev/package.json /unpkg.com-dev/server.js ~/
+COPY --from=builder /unpkg.com-dev/public /unpkg.com-dev/package.json /unpkg.com-dev/server.js /root/
 
 RUN npm install --production
 
